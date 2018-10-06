@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./js/index.js">
+</head>
+<body>
+    <div class="main">
+        <div class="board">
+            <div class="user-name">
+                <span>名稱：</span>
+                <input type="text" value="" id="my_name">
+            </div>
+            <div class="play-status">
+                <span>下棋狀態：</span>
+                <span id="current_status">等待中</span>
+                <button id="change_name">修改ID</button>
+            </div>
+            <canvas id="chessboard"></canvas>
+        </div>
+    </div>
+    <div class="onine-user">
+        <p class="onine-title">玩家</p>
+        <div id="user_list"></div>
+    </div>
+    <script id="user_template" type="text/x-handlebars-template">
+        {{#each userList}}
+        <div class="user-item">
+            <p class="user-info">{{name}}</p>
+            <button class="user-status {{statusClass}}" data-id="{{id}}" data-name="{{name}}">{{statusText}}</button>
+        </div>
+        {{/each}}
+    </script>
+    <script src="./lib/jquery.min.js"></script>
+    <script src="./lib/socket.io.js"></script>
+    <script src="./js/index.js"></script>
+</body>
+</html>
